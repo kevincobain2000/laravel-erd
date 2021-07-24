@@ -24,7 +24,7 @@ Automatically generate interactive ERD from Models relationships in Laravel.
 You can install the package via composer:
 
 ```bash
-composer require kevincobain2000/laravel-erd
+composer require kevincobain2000/laravel-erd --dev
 ```
 
 
