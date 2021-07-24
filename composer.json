@@ -1,6 +1,6 @@
 {
     "name": "kevincobain2000/laravel-erd",
-    "description": "laravel erd generator",
+    "description": "A tool to automatically generate interactive ERD relationships in Models for Laravel",
     "keywords": [
         "kevincobain2000",
         "laravel erd generator",
@@ -8,6 +8,7 @@
     ],
     "homepage": "https://github.com/kevincobain2000/laravel-erd",
     "license": "MIT",
+    "version": "1.0",
     "authors": [
         {
             "name": "Pulkit Kathuria",

@@ -1,7 +1,7 @@
 # Laravel ERD Generator
 
 Automatically generate interactive ERD from Models relationships in Laravel.
-- This package provides a CLI to automatically generate ERD by looking into relationships setup inside Models.
+- This package provides a CLI to automatically generate interactive ERD by looking into relationships setup inside Models.
 - The tool's interface is available to get JSON data of relationships and table schema from Models to be used by visual charts libraries of your choice such as d3.js etc
 - Output is an interactive ERD (Entity Relation Diagram) powered by HTML and JS (GOJS).
 
