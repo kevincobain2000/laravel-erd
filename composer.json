@@ -49,10 +49,7 @@
         "laravel": {
             "providers": [
                 "Kevincobain2000\\LaravelERD\\LaravelERDServiceProvider"
-            ],
-            "aliases": {
-                "LaravelERD": "Kevincobain2000\\LaravelERD\\LaravelERDFacade"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
