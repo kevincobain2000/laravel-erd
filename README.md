@@ -55,8 +55,10 @@ use Kevincobain2000\LaravelERD\LaravelERD;
 
 $namespace = 'App\Models\\';
 $modelsPath = base_path('app/Models');
-$linkDataArray = $this->laravelERD->getLinkDataArray($namespace, $modelsPath);
-$nodeDataArray = $this->laravelERD->getNodeDataArray($namespace, $modelsPath);
+
+$laravelERD = new LaravelERD();
+$linkDataArray = $laravelERD->getLinkDataArray($namespace, $modelsPath);
+$nodeDataArray = $laravelERD->getNodeDataArray($namespace, $modelsPath);
 $erdData = json_encode(
     [
         "link_data" => $linkDataArray,
