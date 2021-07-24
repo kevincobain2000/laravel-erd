@@ -44,9 +44,11 @@ ERD HTML is generated inside ``docs/``.
 
 ### Sample
 
+#### Screenshot
+
 ![Image](https://i.imgur.com/tYk1CuC.png)
 
-## Get JSON output
+#### Get JSON output
 
 ```php
 use Kevincobain2000\LaravelERD\LaravelERD;
