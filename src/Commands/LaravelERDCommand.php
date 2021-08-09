@@ -34,10 +34,10 @@ class LaravelERDCommand extends Command
     {
         $namespace       = config('laravel-erd.namespace') ?? 'App\Models\\';
         $modelsPath      = config('laravel-erd.models_path') ?? base_path('app/Models');
-        $docssPath       = config('laravel-erd.docs_path') ?? base_path('docs/erd/');
+        $docsPath        = config('laravel-erd.docs_path') ?? base_path('docs/erd/');
         $sourcePath      = __DIR__ . "/../../assets/erd/";
 
-        $this->copyAssets($sourcePath, $docssPath);
+        $this->copyAssets($sourcePath, $docsPath);
 
         // extract data
         $linkDataArray = $this->laravelERD->getLinkDataArray($namespace, $modelsPath);
@@ -54,19 +54,19 @@ class LaravelERDCommand extends Command
 
         File::put(base_path('docs/erd/erd.json'), $erdData);
 
-        $this->info("ERD data written successfully to $docssPath");
+        $this->info("ERD data written successfully to $docsPath");
 
         return 0;
     }
 
-    public function copyAssets(string $sourcePath, string $docssPath)
+    public function copyAssets(string $sourcePath, string $docsPath)
     {
-        if (! File::exists($docssPath)) {
-            File::makeDirectory($docssPath, 0755, true);
+        if (! File::exists($docsPath)) {
+            File::makeDirectory($docsPath, 0755, true);
         }
 
-        File::copy($sourcePath . "/erd.js",     $docssPath . "/erd.js");
-        File::copy($sourcePath . "/index.html", $docssPath . "/index.html");
+        File::copy($sourcePath . "/erd.js",     $docsPath . "/erd.js");
+        File::copy($sourcePath . "/index.html", $docsPath . "/index.html");
     }
 }
 
