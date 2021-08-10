@@ -28,8 +28,7 @@ class LaravelERDController extends Controller
             [
                 "link_data" => $linkDataArray,
                 "node_data" => $nodeDataArray,
-            ],
-            JSON_PRETTY_PRINT
+            ]
         );
         return view('erd::index')->with(compact('docs'));
     }

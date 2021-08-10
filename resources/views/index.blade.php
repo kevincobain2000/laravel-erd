@@ -8,28 +8,41 @@
 
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.1.46/go.js"></script>
-      <title>Entity Relationship</title>
+      <script src="https://unpkg.com/gojs@2.1.47/extensions/Figures.js"></script>
+      <title>ERD</title>
    </head>
-   <body>
-      <div class="md:flex flex-col md:flex-row md:min-h-screen w-full " style="margin-top: 40px;">
-        <div id="navSide" class="flex flex-col w-full md:w-48 text-gray-700 bg-white flex-shrink-0">
-            <b class="text-sm">Filter by Relation Type</b>
-            <div class="text-sm">
-                <input type="checkbox" class="text-sm" id="input-relation-type-checkbox-check-all">check all
+   <body class="bg-gray-100 tracking-wide bg-gray-200">
+        <nav class="bg-white py-2 ">
+            <div class="container px-4 mx-auto md:flex md:items-center">
+
+            <div class="flex justify-between items-center">
+                <a href="{{config('laravel-erd.url')}}" class="font-bold text-xl text-indigo-600">ERD</a>
             </div>
 
-            <div id="filter-by-relation-type"></div>
-            <b class="text-sm">Filter by Table Name</b>
-            <div class="text-sm">
-                <input type="checkbox" id="input-table-names-checkbox-check-all">check all
+                <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+
+                    <a href="https://github.com/kevincobain2000/laravel-erd" class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Request Feature</a>
+                </div>
             </div>
-            <div id="filter-by-table-name"></div>
-        </div>
-         <div class="p-4 w-full">
-            <div id="sample">
-               <div id="myDiagramDiv" style="background-color: white; border: solid 1px black; width: 100%; height: 95vh"></div>
+        </nav>
+        <div id="app" v-cloak class="w-full flex lg:pt-10">
+            <aside class="text-xl text-grey-darkest break-all bg-gray-200 pl-2 h-screen sticky top-1 overflow-auto">
+                <b class="text-sm">Filter by Relation Type</b>
+                <div class="text-sm">
+                    <input type="checkbox" class="text-sm" id="input-relation-type-checkbox-check-all"> check all
+                </div>
+
+                <div id="filter-by-relation-type"></div>
+                <b class="text-sm">Filter by Table Name</b>
+                <div class="text-sm">
+                    <input type="checkbox" id="input-table-names-checkbox-check-all"> check all
+                </div>
+                <div id="filter-by-table-name"></div>
+            </aside>
+            <div class="ml-6 mr-6 pl-2 w-10/12 bg-gray-300 p-2">
+                <div id="myDiagramDiv" style="background-color: white; width: 100%; height: 95vh"></div>
+                </div>
             </div>
-         </div>
       </div>
       <script>
 
@@ -193,7 +206,7 @@ function init() {
                   textAlign: "center",
                   font: "bold 12px sans-serif",
                   stroke: "#1967B3",
-                  segmentIndex: -1,
+                  segmentIndex: -10,
                   segmentOffset: new go.Point(NaN, NaN),
                   segmentOrientation: go.Link.OrientUpright,
                   fromLinkable: true,

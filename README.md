@@ -36,6 +36,10 @@ php artisan vendor:publish --provider="Kevincobain2000\LaravelERD\LaravelERDServ
 
 ## Usage
 
+You can access the ERD in ``localhost:3000/erd``
+
+or generate a static HTML
+
 ```php
 php artisan erd:generate
 ```
