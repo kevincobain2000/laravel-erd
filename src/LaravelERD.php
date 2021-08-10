@@ -134,7 +134,7 @@ class LaravelERD
                 "isKey"  => $isPrimaryKey,
                 "figure" => $isPrimaryKey ? "Hexagon" : "Decision",
                 "color"  => $isPrimaryKey ? "#be4b15" : "#6ea5f8",
-                "info"   => Schema::getColumnType($model->getTable(), $column),
+                "info"   => config('laravel-erd.display.show_data_type') ? Schema::getColumnType($model->getTable(), $column) : "",
             ];
         }
 
@@ -166,56 +166,13 @@ class LaravelERD
             $linkItems[] = [
                 "from"     => $fromTable,
                 "to"       => $toTable,
-                "fromText" => $this->getFromText($relationship),
-                "toText"   => $this->getToText($relationship),
+                "fromText" => config('laravel-erd.from_text.'.$relationship['type']),
+                "toText"   => config('laravel-erd.to_text.'.$relationship['type']),
                 "fromPort" => explode(".", $fromPort)[1], //strip tablename
                 "toPort"   => explode(".", $toPort)[1],//strip tablename
                 "type"     => $relationship['type'],
             ];
         }
         return $linkItems;
-    }
-
-    private function getFromText(array $relationship)
-    {
-        $text = '';
-        switch ($relationship['type']) {
-            case 'BelongsTo':
-                $text = "1..1\nBT";
-                break;
-            case 'BelongsToMany':
-                $text = "1..N\nBTM";
-                break;
-            case 'HasMany':
-                $text = "1..N\nHM";
-                break;
-            case 'HasOne':
-                $text = "1..1\nHO";
-                break;
-            case 'MorphTo':
-                $text = "1..1\nMT";
-                break;
-            case 'MorphMany':
-                $text = "1..N\nMM";
-                break;
-        }
-        return $text;
-    }
-
-    private function getToText(array $relationship)
-    {
-        $text = '';
-        switch ($relationship['type']) {
-            case 'BelongsTo':
-                $text = '';
-                break;
-            case 'HasMany':
-                $text = '';
-                break;
-            case 'HasOne':
-                $text = '';
-                break;
-        }
-        return $text;
     }
 }
