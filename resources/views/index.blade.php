@@ -41,7 +41,6 @@
             </aside>
             <div class="ml-6 mr-6 pl-2 w-10/12 bg-gray-300 p-2">
                 <div id="myDiagramDiv" style="background-color: white; width: 100%; height: 95vh"></div>
-                </div>
             </div>
       </div>
       <script>
