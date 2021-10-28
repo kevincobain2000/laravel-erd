@@ -14,11 +14,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class LaravelERD
 {
-    public function getModelsNames(string $namespace, string $modelsPath)
+    public function getModelsNames(string $modelsPath)
     {
         return collect(File::allFiles($modelsPath))
-            ->map(function ($item) use ($namespace) {
+            ->map(function ($item) {
                 $path = $item->getRelativePathName();
+                $namespace = $this->extractNamespace($item->getRealPath()) . '\\';
                 $class = sprintf(
                     '\%s%s',
                     $namespace,
@@ -38,10 +39,10 @@ class LaravelERD
             });
     }
 
-    public function getLinkDataArray(string $namespace, string $modelsPath)
+    public function getLinkDataArray(string $modelsPath)
     {
         $linkDataArray = [];
-        $modelNames = $this->getModelsNames($namespace, $modelsPath);
+        $modelNames = $this->getModelsNames($modelsPath);
 
         foreach ($modelNames as $modelName) {
             $model = app($modelName);
@@ -54,16 +55,51 @@ class LaravelERD
         return $linkDataArray;
     }
 
-    public function getNodeDataArray(string $namespace, string $modelsPath)
+    public function getNodeDataArray(string $modelsPath)
     {
         $nodeDataArray = [];
-        $modelNames = $this->getModelsNames($namespace, $modelsPath);
+        $modelNames = $this->getModelsNames($modelsPath);
+        $modelNames = $this->removeDuplicateModelNames($modelNames);
 
         foreach ($modelNames as $modelName) {
             $model = app($modelName);
+
             $nodeDataArray[] = $this->getNodes($model);
         }
         return $nodeDataArray;
+    }
+
+    function removeDuplicateModelNames($modelNames)
+    {
+        $finalModelNames = collect($modelNames)
+            ->map(function($modelName) {
+                $model = app($modelName);
+                return [
+                    'model_name' => $modelName,
+                    'table' => $model->getTable(),
+                ];
+            })
+            ->unique('table')
+            ->pluck('model_name');
+
+        return $finalModelNames->all();
+    }
+
+    private function extractNamespace($file)
+    {
+        $ns = NULL;
+        $handle = fopen($file, "r");
+        if ($handle) {
+            while (($line = fgets($handle)) !== false) {
+                if (strpos($line, 'namespace') === 0) {
+                    $parts = explode(' ', $line);
+                    $ns = rtrim(trim($parts[1]), ';');
+                    break;
+                }
+            }
+            fclose($handle);
+        }
+        return $ns;
     }
 
     /**
@@ -137,7 +173,6 @@ class LaravelERD
                 "info"   => config('laravel-erd.display.show_data_type') ? Schema::getColumnType($model->getTable(), $column) : "",
             ];
         }
-
         return [
             "key"    => $model->getTable(),
             "schema" => $nodeItems

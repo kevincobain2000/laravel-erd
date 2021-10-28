@@ -27,13 +27,12 @@ class LaravelERDCommand extends Command
      */
     public function handle()
     {
-        $namespace       = config('laravel-erd.namespace') ?? 'App\Models\\';
         $modelsPath      = config('laravel-erd.models_path') ?? base_path('app/Models');
         $destinationPath = config('laravel-erd.docs_path') ?? base_path('docs/erd/');
 
         // extract data
-        $linkDataArray = $this->laravelERD->getLinkDataArray($namespace, $modelsPath);
-        $nodeDataArray = $this->laravelERD->getNodeDataArray($namespace, $modelsPath);
+        $linkDataArray = $this->laravelERD->getLinkDataArray($modelsPath);
+        $nodeDataArray = $this->laravelERD->getNodeDataArray($modelsPath);
 
         // pretty print array to json
         $docs = json_encode(
@@ -57,4 +56,3 @@ class LaravelERDCommand extends Command
         return 0;
     }
 }
-
