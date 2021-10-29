@@ -18,10 +18,9 @@ class LaravelERDController extends Controller
 
     public function index()
     {
-        $namespace       = config('laravel-erd.namespace') ?? 'App\Models\\';
         $modelsPath      = config('laravel-erd.models_path') ?? base_path('app/Models');
-        $linkDataArray   = $this->laravelERD->getLinkDataArray($namespace, $modelsPath);
-        $nodeDataArray   = $this->laravelERD->getNodeDataArray($namespace, $modelsPath);
+        $linkDataArray   = $this->laravelERD->getLinkDataArray($modelsPath);
+        $nodeDataArray   = $this->laravelERD->getNodeDataArray($modelsPath);
 
         // pretty print array to json
         $docs = json_encode(

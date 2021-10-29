@@ -57,12 +57,11 @@ ERD HTML is generated inside ``docs/``.
 ```php
 use Kevincobain2000\LaravelERD\LaravelERD;
 
-$namespace = 'App\Models\\';
 $modelsPath = base_path('app/Models');
 
 $laravelERD = new LaravelERD();
-$linkDataArray = $laravelERD->getLinkDataArray($namespace, $modelsPath);
-$nodeDataArray = $laravelERD->getNodeDataArray($namespace, $modelsPath);
+$linkDataArray = $laravelERD->getLinkDataArray($modelsPath);
+$nodeDataArray = $laravelERD->getNodeDataArray($modelsPath);
 $erdData = json_encode(
     [
         "link_data" => $linkDataArray,
