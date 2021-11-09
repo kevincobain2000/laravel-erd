@@ -11,6 +11,15 @@ return [
 
     "display" => [
         "show_data_type" => false,
+
+        /**
+         * Controls how the lines between models are drawn.
+         *
+         * Valid values are: Normal, Orthogonal, or AvoidsNodes.
+         *
+         * AvoidsNodes can be very slow in larger diagrams!
+         */
+        "routing" => 'AvoidsNodes',
     ],
 
     "from_text" => [

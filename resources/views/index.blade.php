@@ -172,7 +172,7 @@ function init() {
               selectionAdorned: true,
               layerName: "Foreground",
               reshapable: true,
-              routing: go.Link.AvoidsNodes,
+              routing: go.Link.{{ $routingType }},
               corner: 5,
               curve: go.Link.Orthogonal,
               curviness: 0,
