@@ -22,14 +22,17 @@ class LaravelERDController extends Controller
         $linkDataArray   = $this->laravelERD->getLinkDataArray($modelsPath);
         $nodeDataArray   = $this->laravelERD->getNodeDataArray($modelsPath);
 
-        // pretty print array to json
-        $docs = json_encode(
-            [
-                "link_data" => $linkDataArray,
-                "node_data" => $nodeDataArray,
-            ]
-        );
-        return view('erd::index')->with(compact('docs'));
+        return view('erd::index')->with([
+            'routingType' => config('laravel-erd.display.routing') ?? 'AvoidsNodes',
+
+            // pretty print array to json
+            'docs' => json_encode(
+                [
+                    "link_data" => $linkDataArray,
+                    "node_data" => $nodeDataArray,
+                ]
+            ),
+        ]);
     }
 
 }

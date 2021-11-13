@@ -34,20 +34,22 @@ class LaravelERDCommand extends Command
         $linkDataArray = $this->laravelERD->getLinkDataArray($modelsPath);
         $nodeDataArray = $this->laravelERD->getNodeDataArray($modelsPath);
 
-        // pretty print array to json
-        $docs = json_encode(
-            [
-                "link_data" => $linkDataArray,
-                "node_data" => $nodeDataArray,
-            ]
-        );
-
         if (! File::exists($destinationPath)) {
             File::makeDirectory($destinationPath, 0755, true);
         }
         File::put($destinationPath . '/index.html',
             view('erd::index')
-                ->with(compact('docs'))
+                ->with([
+                    'routingType' => config('laravel-erd.display.routing') ?? 'AvoidsNodes',
+
+                    // pretty print array to json
+                    'docs' => json_encode(
+                        [
+                            "link_data" => $linkDataArray,
+                            "node_data" => $nodeDataArray,
+                        ]
+                    ),
+                ])
                 ->render()
         );
 
