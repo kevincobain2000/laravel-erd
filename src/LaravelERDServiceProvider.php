@@ -15,10 +15,7 @@ class LaravelERDServiceProvider extends PackageServiceProvider
             ->name('laravel-erd')
             ->hasConfigFile('laravel-erd')
             ->hasViews()
-            ->hasCommand(LaravelERDCommand::class);
-
-        Route::get(config('laravel-erd.url'), [\Kevincobain2000\LaravelERD\Controllers\LaravelERDController::class, 'index'])
-            ->name('laravel-erd.index')
-            ->middleware(config('laravel-erd.middlewares'));
+            ->hasCommand(LaravelERDCommand::class)
+            ->hasRoutes('web');
     }
 }
