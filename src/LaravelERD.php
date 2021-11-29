@@ -18,7 +18,7 @@ class LaravelERD
     {
         return collect(File::allFiles($modelsPath))
             ->map(function ($item) {
-                $path = $item->getRelativePathName();
+                $path = $item->getFilename();
                 $namespace = $this->extractNamespace($item->getRealPath()) . '\\';
                 $class = sprintf(
                     '\%s%s',
