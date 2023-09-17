@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: [7.4, 8.0.6]
+        php-versions: [7.4, 8.0, 8.1, 8.2]
         # laravel-versions: [8.*, 8.12]
 
     steps:
@@ -30,8 +30,8 @@ jobs:
         run: composer install
 
       - name: PHPUNIT Tests
-        run: |
-            ./vendor/bin/phpunit
+        run: ./vendor/bin/phpunit
+
 
 
 
