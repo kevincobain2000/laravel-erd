@@ -29,29 +29,9 @@ jobs:
       - name: Composer Install
         run: composer install
 
-      - name: PHP/Composer Vendor Size
-        run: |
-          echo SCORE=`du -sm vendor/ | awk '{print $1}'` >> "$GITHUB_ENV"
-
-      - uses: kevincobain2000/action-coveritup@v1
-        with:
-          type: php-vendor-size
-
       - name: PHPUNIT Tests
-        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+        run: ./vendor/bin/phpunit
 
-      - name: Code Coverage
-        run: |
-          curl -sLk https://raw.githubusercontent.com/kevincobain2000/cover-totalizer/master/install.sh | sh
-          echo SCORE=`./cover-totalizer coverage.xml` >> "$GITHUB_ENV"
-
-      - uses: kevincobain2000/action-coveritup@v1
-        with:
-          type: coverage
-
-      - uses: kevincobain2000/action-coveritup@v1
-        with:
-          pr_comment: true
 
 
 
