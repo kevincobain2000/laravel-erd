@@ -1,5 +1,10 @@
 # Laravel ERD Generator
 
+[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=coverage&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
+[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=php-vendor-size&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
+[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=composer-dependencies&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
+
+
 Automatically generate interactive ERD from Models relationships in Laravel.
 - This package provides a CLI to automatically generate interactive ERD by looking into relationships setup inside Models.
 - The tool's interface is available to get JSON data of relationships and table schema from Models to be used by visual charts libraries of your choice such as d3.js etc
