@@ -8,7 +8,7 @@
     ],
     "homepage": "https://github.com/kevincobain2000/laravel-erd",
     "license": "MIT",
-    "version": "1.6",
+    "version": "1.7",
     "authors": [
         {
             "name": "Pulkit Kathuria",
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^7.4|^8.0",
+        "php": "^7.4|^8.0|^8.1|^8.2",
         "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {

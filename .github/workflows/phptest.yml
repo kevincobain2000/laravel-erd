@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: [7.4, 8.0.6]
+        php-versions: [7.4, 8.0, 8.1, 8.2]
         # laravel-versions: [8.*, 8.12]
 
     steps:
@@ -29,9 +29,29 @@ jobs:
       - name: Composer Install
         run: composer install
 
-      - name: PHPUNIT Tests
+      - name: PHP/Composer Vendor Size
         run: |
-            ./vendor/bin/phpunit
+          echo SCORE=`du -sm vendor/ | awk '{print $1}'` >> "$GITHUB_ENV"
+
+      - uses: kevincobain2000/action-coveritup@v1
+        with:
+          type: php-vendor-size
+
+      - name: PHPUNIT Tests
+        run: ./vendor/bin/phpunit --coverage-clover=coverage.xml
+
+      - name: Code Coverage
+        run: |
+          curl -sLk https://raw.githubusercontent.com/kevincobain2000/cover-totalizer/master/install.sh | sh
+          echo SCORE=`./cover-totalizer coverage.xml` >> "$GITHUB_ENV"
+
+      - uses: kevincobain2000/action-coveritup@v1
+        with:
+          type: coverage
+
+      - uses: kevincobain2000/action-coveritup@v1
+        with:
+          pr_comment: true
 
 
 
