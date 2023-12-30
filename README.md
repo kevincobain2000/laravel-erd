@@ -1,5 +1,3 @@
-![action-scc](https://instachart.coveritup.app/bar?title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines&width=960&height=700&subtitle=kevincobain2000@laravel-erd&data={"x":["PHP","YAML","Markdown","Blade template","JSON","XML","gitignore"],"y":[[345,82,124,322,61,12,15],[44,2,0,0,0,0,0],[9,3,2,1,1,1,1],[21,0,0,7,0,0,0]],"names":["Code","Comment","Files","Complexity"]})
-
 # Laravel ERD Generator
 
 [![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=coverage&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
