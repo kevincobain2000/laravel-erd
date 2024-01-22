@@ -2,9 +2,10 @@
 
 # Laravel ERD Generator
 
-[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=coverage&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
-[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=php-vendor-size&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
-[![badge](https://coveritup.app/embed/kevincobain2000/laravel-erd?branch=develop&type=composer-dependencies&camo=1694931238890)](https://coveritup.app/kevincobain2000/laravel-erd)
+![php-vendor-size](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=php-vendor-size&branch=master)
+![coverage](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=coverage&branch=master)
+![composer-dependencies](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&branch=master)
+
 
 
 Automatically generate interactive ERD from Models relationships in Laravel.
