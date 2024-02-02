@@ -1,14 +1,12 @@
-![action-bar-scc](https://instachart.coveritup.app/bar?title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines&width=960&height=700&subtitle=kevincobain2000@laravel-erd&data={"x":["PHP","YAML","Markdown","Blade-template","JSON","XML","gitignore"],"y":[[345,82,125,322,61,12,15],[44,2,0,0,0,0,0],[9,3,2,1,1,1,1],[21,0,0,7,0,0,0]],"names":["Code","Comment","Files","Complexity"]})
-
-![action-scc](https://instachart.coveritup.app/bar?width=960&height=700&subtitle=kevincobain2000@laravel-erd&data={"x":["PHP","YAML","Markdown","Blade-template","JSON","XML","gitignore"],"y":[[345,82,124,322,61,12,15],[44,2,0,0,0,0,0],[9,3,2,1,1,1,1],[21,0,0,7,0,0,0]],"names":["Code","Comment","Files","Complexity"]}&title=SCC+-+Sloc,+Cloc+and+Code&metric=+lines)
-
 # Laravel ERD Generator
 
 ![php-vendor-size](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=php-vendor-size&branch=master)
 ![coverage](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=coverage&branch=master)
 ![composer-dependencies](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&branch=master)
 
-
+![php-vendor-size](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=php-vendor-size&output=svg&width=160&height=160&branch=master)
+![coverage](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=coverage&output=svg&width=160&height=160&branch=master)
+![composer-dependencies](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&output=svg&width=160&height=160&branch=master)
 
 Automatically generate interactive ERD from Models relationships in Laravel.
 - This package provides a CLI to automatically generate interactive ERD by looking into relationships setup inside Models.
