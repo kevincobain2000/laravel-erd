@@ -4,9 +4,9 @@
 ![coverage](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=coverage&branch=master)
 ![composer-dependencies](https://coveritup.app/badge?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&branch=master)
 
-![php-vendor-size](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=php-vendor-size&output=svg&width=160&height=160&branch=master)
+![php-vendor-size](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=php-vendor-size&output=svg&width=160&height=160&branch=master&line=fill)
 ![coverage](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=coverage&output=svg&width=160&height=160&branch=master)
-![composer-dependencies](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&output=svg&width=160&height=160&branch=master)
+![composer-dependencies](https://coveritup.app/chart?org=kevincobain2000&repo=laravel-erd&type=composer-dependencies&output=svg&width=160&height=160&branch=master&line=fill)
 
 Automatically generate interactive ERD from Models relationships in Laravel.
 - This package provides a CLI to automatically generate interactive ERD by looking into relationships setup inside Models.
